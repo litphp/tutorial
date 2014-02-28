@@ -27,6 +27,8 @@ Demo 2.
 ===
 __Router Basic__
 
+[diff](https://github.com/LitPHP/tutorial/compare/demo-hello...demo-router-basic) | [src](https://github.com/LitPHP/tutorial/tree/demo-router-basic)
+
 this demo show how to route your app.
 
 + `return true;` within the route callback to break route chain
