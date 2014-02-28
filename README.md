@@ -1,6 +1,8 @@
 Demo 1.
 ===
-__Hello World!__
+__Hello World!__ 
+
+[src](https://github.com/LitPHP/tutorial/tree/demo-hello)
 
 this demo show the minimal code to run a lit app.
 
