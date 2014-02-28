@@ -12,8 +12,12 @@ $app = new Lit_App();
 
 //get the router
 $app->router()
-    //insert a route: for any request, call `Demo_Controller_Main::index`
-    ->any(array('Demo_Controller_Main', 'index'));
+    //if the request uri match the regex, then call the index callback
+    ->regex('#^/$#', array('Demo_Controller_Main', 'index'))
+    //show how to get the regex match result
+    ->regex('#^/user/(?P<nickname>\w+)$#', array('Demo_Controller_Main', 'uriparam'))
+    //if regex failed to catch the request, this route show the 404page
+    ->any(array('Demo_Controller_Main', 'notFound'));
 
 //run app
 $app->run();

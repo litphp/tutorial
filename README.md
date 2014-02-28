@@ -21,3 +21,16 @@ nginx
 
     try_files $uri /index.php?$args;
 
+Demo 2.
+===
+__Router Basic__
+
+this demo show how to route your app.
+
++ `return true;` within the route callback to break route chain
++ `Lit_Route_Regex` support route via regex on request uri
+
+    + catch the regex match result with `$app->context(Lit_Route_Regex::MATCHES)`
+
++ set http status code via `$litHttpView->status`
+
