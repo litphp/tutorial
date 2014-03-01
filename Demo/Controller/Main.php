@@ -6,15 +6,10 @@ class Demo_Controller_Main
     //the route callback, get the $app as param
     public static function index(Lit_App $app)
     {
-        //create an HTTP View result
-        $result = new Lit_Http_View($app);
-        //set the HTTP body
-        $result->body = <<<HTML
-<a href="/user/jack">/user/jack</a>
-<br>
-<a href="/404">/404</a>
-HTML;
-
+        //we show how to use layout view here
+        //pass the $template, telling which template we are using
+        $result = new Demo_Layout($app, 'index');
+        //yep. that's over!
 
         //tell $app our result
         $app->setResult($result);
@@ -28,8 +23,10 @@ HTML;
     {
         $params = $app->context(Lit_Route_Regex::MATCHES);
 
-        $result = new Lit_Http_View($app);
-        $result->body = var_export($params, true);
+        //here's the example for passing some data
+        $result = new Demo_View($app, 'uriparam');
+        //pass data by the way Demo_View::data() defined
+        $result->viewdata['params'] = $params;
 
         $app->setResult($result);
 
@@ -46,4 +43,4 @@ HTML;
 
         $app->setResult($result);
     }
-} 
+}
